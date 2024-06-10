@@ -1,4 +1,4 @@
-package 알고리즘;
+package 문제풀이;
 
 public class 프로그래머스_문자열밀기 {
 
