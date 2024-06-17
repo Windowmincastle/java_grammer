@@ -11,61 +11,61 @@ public class C0503ComparableComparator {
 //    두 문자열의 각 자리를 순차적으로 비교한다.
 //    문자열의 비교는 유니코드 값의 차이를 반환한다.
     public static void main(String[] args) {
-    //    String 클래스에 compareTo 내장 (Comparable을 구현)
-//        String a = "hello";
-//        String b = "horld";
-//        System.out.println(a.compareTo(b));
+//    //    String 클래스에 compareTo 내장 (Comparable을 구현)
+////        String a = "hello";
+////        String b = "horld";
+////        System.out.println(a.compareTo(b));
+////
+////        Integer a1 = 10;
+////        Integer a2 = 10; // 래퍼클래스에서만 가능한가?
+////        System.out.println(a1.compareTo(a2));
 //
-//        Integer a1 = 10;
-//        Integer a2 = 10; // 래퍼클래스에서만 가능한가?
-//        System.out.println(a1.compareTo(a2));
-
-        List<String> lst = new ArrayList<>();
-        lst.add("java");
-        lst.add("python");
-        lst.add("javascript");
-
-//        정렬 1
-        Collections.sort(lst);//내부적으로 Comparabble의 compareTo 메서드를 구현하여 정렬
-        System.out.println(lst);
-//        정렬 2
-        Collections.sort(lst, Comparator.reverseOrder());
-        System.out.println(lst);
-
-        lst.sort(Comparator.naturalOrder());
-        lst.sort(Comparator.reverseOrder());
-
-        Student stn1 = new Student("김민성", 33);
-        Student stn2 = new Student("김수연", 34);
-        Student stn3 = new Student("황요한", 35);
-        Student stn4 = new Student("홍예지", 36);
-        Student stn5 = new Student("최아영", 37);
-
-        List<String> stnlst = new ArrayList<>();
-        stnlst.add(stn1.name);
-        stnlst.add(stn2.name);
-        stnlst.add(stn3.name);
-        stnlst.add(stn4.name);
-        stnlst.add(stn5.name);
-
-        List<Student> students = new ArrayList<>();
-        students.add(new Student("kim",24));
-        students.add(new Student("park",21));
-        students.add(new Student("lee",35));
-        students.add(new Student("park",15));
-        students.add(new Student("choi",30));
-        students.add(new Student("kim",26));
-
-        Collections.sort(students); //이렇게 찍으면 메모리 주소가 나옴
-
-        for (Student s : students) {
-            System.out.print(s.getName()+",");
-
-        }
-        System.out.println();
-        for (Student s : students) {
-            System.out.print(s.getAge()+",");
-        }
+//        List<String> lst = new ArrayList<>();
+//        lst.add("java");
+//        lst.add("python");
+//        lst.add("javascript");
+//
+////        정렬 1
+//        Collections.sort(lst);//내부적으로 Comparabble의 compareTo 메서드를 구현하여 정렬
+//        System.out.println(lst);
+////        정렬 2
+//        Collections.sort(lst, Comparator.reverseOrder());
+//        System.out.println(lst);
+//
+//        lst.sort(Comparator.naturalOrder());
+//        lst.sort(Comparator.reverseOrder());
+//
+////        Student stn1 = new Student("김민성", 33);
+////        Student stn2 = new Student("김수연", 34);
+////        Student stn3 = new Student("황요한", 35);
+////        Student stn4 = new Student("홍예지", 36);
+////        Student stn5 = new Student("최아영", 37);
+//
+//        List<String> stnlst = new ArrayList<>();
+//        stnlst.add(stn1.name);
+////        stnlst.add(stn2.name);
+////        stnlst.add(stn3.name);
+////        stnlst.add(stn4.name);
+////        stnlst.add(stn5.name);
+//
+//        List<Student> students = new ArrayList<>();
+//        students.add(new Student("kim",24));
+//        students.add(new Student("park",21));
+//        students.add(new Student("lee",35));
+//        students.add(new Student("park",15));
+//        students.add(new Student("choi",30));
+//        students.add(new Student("kim",26));
+//
+//        Collections.sort(students); //이렇게 찍으면 메모리 주소가 나옴
+//
+//        for (Student s : students) {
+//            System.out.print(s.getName()+",");
+//
+//        }
+//        System.out.println();
+//        for (Student s : students) {
+//            System.out.print(s.getAge()+",");
+//        }
 
 
 
@@ -74,42 +74,88 @@ public class C0503ComparableComparator {
 
 //  방법 1.       Student 객체에서 Comparable을 구현 => compareTo메서드를 오버라이딩
 //  방법 2.     Comparator를 구현한 익명 객체를 sort에 주입
-//        방법 2. Comparator를 구현한 익명객체를 sort에 주입
-        Comparator<Student> myComparator = new Comparator<Student>() {
-            @Override
-            public int compare(Student o1, Student o2) {
-//                return o1.getAge() - o2.getAge();
-                return o1.getName().compareTo(o2.getName());
-            }
-        };
+////        방법 2. Comparator를 구현한 익명객체를 sort에 주입
+//        Comparator<Student> myComparator = new Comparator<Student>() {
+//            @Override
+//            public int compare(Student o1, Student o2) {
+////                return o1.getAge() - o2.getAge();
+//                return o1.getName().compareTo(o2.getName());
+//            }
+//        };
 
 
-//        students.sort((o1,o2) -> o1.getAge() - o2.getAge());
-        students.sort((o1,o2) -> o1.getName().compareTo(o2.getName()));
-
-        for (Student student : students) {
-            System.out.println(student.getName());
-            System.out.println(student.getAge());
-        }
-
+////        students.sort((o1,o2) -> o1.getAge() - o2.getAge());
+//        students.sort((o1,o2) -> o1.getName().compareTo(o2.getName()));
 //
-        String[] str2 = {"hello", "java", "C++", "world2"};
-        Arrays.sort(str2, Comparator.reverseOrder());
-//        요구사항 : 아래 문자열을 글자길이 순서로 내림차순 정렬 하여라
-        Arrays.sort(str2, (a, b) -> b.length() - a.length());
-        System.out.println(Arrays.toString(str2));
+//        for (Student student : students) {
+//            System.out.println(student.getName());
+//            System.out.println(student.getAge());
+//        }
+//
+//// 아래 문자열을 글자 길이 순서로 내림차순 정렬 하여라
+//        String[] str2 = {"hello", "java", "C++", "world2"};
+//        Arrays.sort(str2, Comparator.reverseOrder());
+////        요구사항 : 아래 문자열을 글자길이 순서로 내림차순 정렬 하여라
+//        Arrays.sort(str2, (a, b) -> b.length() - a.length());
+//        System.out.println(Arrays.toString(str2));
+//
+////      [4,5],[1,2],[5,0],[3,1]
+//// 위 배열이 들어간 아래 리스트를 1번쨰를 기준으로 내림차순 정렬
+//        List<int[]> lst2 = new ArrayList<>();
+//        lst2.add(new int[]{4, 5});
+//        lst2.add(new int[]{1, 2});
+//        lst2.add(new int[]{5, 0});
+//        lst2.add(new int[]{3, 1});
+//        lst2.add(new int[]{5, 5});
+//////        lst2.sort((a, b) -> Integer.compare(b[0], a[0]));
+////        lst2.sort((a,b)->b[1]-a[1]);
+////
+//////        comparator를 만들어야하마
+////        Comparator<Student> c1 = (o1, o2) -> {
+//
+//            if (o1[1] == o2[1]) {
+//                return o2[0] - o1[0];
+//            } else {
+//                return o2[1] - o1[1];
+//            }
+////
+////
+//        String[] stArr3 = {"hello", "java", "C++", "world2"};
+////      글자 길이 내림차순 pq
+//        Queue<String> pq = new PriorityQueue<>((o1, o2) -> o2.length() - o1.length());
+//
+//        for (String s : stArr3) {
+//            pq.add(s);
+//        }
+//
+//        while (!pq.isEmpty()) {
+//            System.out.println(pq.poll());
+//        }
 
-//      [4,5],[1,2],[5,0],[3,1]
-// 위 배열이 들어간 아래 리스트를 1번쨰를 기준으로 내림차순 정렬
-        List<int[]> lst2 = new ArrayList<>();
-        lst2.add(new int[]{4, 5});
-        lst2.add(new int[]{1, 2});
-        lst2.add(new int[]{5, 0});
-        lst2.add(new int[]{3, 1});
-//        lst2.sort((a, b) -> Integer.compare(b[0], a[0]));
-        lst2.sort((a,b)->b[1]-a[1]);
+//        0617 ,0617 ,0617 ,0617 ,0617 ,0617 ,0617 ,0617
+
+        //Runnable 인터페이스 : 쓰레드 구현
+
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("새로 생성한 쓰레드 입니다.1");
+                System.out.println("새로 생성한 쓰레드 입니다.2");
+                System.out.println("새로 생성한 쓰레드 입니다.3");
+                System.out.println("새로 생성한 쓰레드 입니다.4");
+            }
+        });
+        t1.start();
+
+        Thread t2 = new Thread(() -> System.out.println("새로 생성한 쓰레드2 입니다"));
+        t2.start();
+
+        new Thread(()-> System.out.println("새로 생성한 쓰레드3 입니다.")).start();
+
+        System.out.println("main 쓰레드 입니다");
 
 
+    }
 }
 
 class Student implements Comparable<Student> {
@@ -152,4 +198,4 @@ class Student implements Comparable<Student> {
         return this.age - s.getAge();
     }
   }
-}
+
