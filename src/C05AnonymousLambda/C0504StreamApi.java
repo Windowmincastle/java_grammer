@@ -1,10 +1,7 @@
 package C05AnonymousLambda;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -98,6 +95,105 @@ public class C0504StreamApi {
 //      95라인 limit 추가
         int[] stArrToInt2stArrToInt2 = Arrays.stream(stArr4).mapToInt(a->a.length()).limit(3).toArray();
         System.out.println(Arrays.toString(stArrToInt2stArrToInt2)+" limit 추가");
-    }
 
+//        위는 스트림의 중개 연산이며 지금부턴 스트림의 소모
+//    스트림의 sum: 합계, reduce: 누적연산 , foreach(출력 용도로 많이 사용한다)
+        int[] intAry2 = {10, 20, 30, 40};
+        Arrays.stream(intAry2).forEach(System.out::println); // a는 생략 가능하다 왜? 어차피 a가 출력될거니깐.
+
+        int intArySum = Arrays.stream(intAry2).sum();
+//        값이 있을수도 있고 없을수도 있음을 명시한 객체 optional 객체
+        int intAryMax = Arrays.stream(intAry2).max().getAsInt(); // getAsInt()나 orelse등 뭐 많은데 값이 잇다고 가정하고 꺼내겟다.
+        int intAryMin = Arrays.stream(intAry2).min().getAsInt();
+        int intAryCnt = (int)Arrays.stream(intAry2).count();
+//        reduce(초기값, 연산식); 매개변수가 2개가 들어온다는게 기본적으로 깔려있다. 표현식 자체가 2개다
+        int allMultiply = Arrays.stream(intAry2).reduce(1,(a,b)->a*b); //1은 초기값을 의미
+        int allAdd = Arrays.stream(intAry2).reduce(0,(a,b)->a+b); //0은 초기값을 의미
+        System.out.println(allMultiply+" allmultiply");
+        System.out.println(allAdd+" allAdd");
+
+        String[] stArr = {"hello", "java", "world"};
+        String stAllAdd = Arrays.stream(stArr).reduce(" ",(a,b)->a+b); // 실무에서 reduce 정말 많이 쓰이는 함수임은 맞다.
+        System.out.println(stAllAdd+" stAllAdd");
+
+
+//      findFirst
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("kim", 20));
+        students.add(new Student("choi", 32));
+        students.add(new Student("lee", 35));
+        students.add(new Student("park", 22));
+
+//        나이가 30이 넘는 학생중에 첫 번쨰 index값을 가지는 학생 객체 생성, getAge() 메서드를 통해서 나이로 비교해야한다.
+        Student s1 = students.stream().filter(a -> a.getAge() >= 30).findFirst().get();
+
+//        Student 객체 실습
+//        1)  모든 객체의 평균 나이.
+        int age = (int)students.stream().mapToInt(a -> a.getAge()).average().getAsDouble();
+        System.out.println(age);
+//        2) 가장 나이 어린 사람 찾기.
+//       모든??이 맞는지 모르겟지만 앵간한 sorted는 comparator로 정렬할 수 있다.
+        Student s2 = students.stream().sorted((a,b)->a.getAge()-b.getAge()).findFirst().get();
+        System.out.println(s2.getName());
+//        3) 30대의 이름을 String 배열에 담기
+        String[] nameArr = students.stream().filter(a->a.getAge()>=30).map(a -> a.getName()).toArray(String[]::new);
+        System.out.println(Arrays.toString(nameArr)+" 30대의 이름");
+
+
+//        Optional 객체 : 특정 객체에 값이 없을지도 모른다는것을 명시적으로 표현.
+//        ofNullable : null이 있을수도 있는 경우에 Optional 객체를 생성하는 메서드
+
+        Optional<String> opt1 = Optional.ofNullable(null);
+        String st1 = null;
+
+        if (opt1.isPresent()) {
+            System.out.println(opt1.get().compareTo("hello"));
+        } else {
+            System.out.println("값이 없습니다.");
+        }
+
+//        옵셔널 객체 생성 3가지 방법
+
+        Optional<String> opt2 = Optional.empty();
+        Optional<String> opt3 = Optional.of(null); //null이 못 들어감 널이 들어가면 에러가 남.
+        Optional<String> opt4 = Optional.ofNullable(null); // null 허용
+//       이걸 왜 배우냐?
+//        내가 직접 옵셔널을 만들 일은 거의 없다.
+//        return이 Optional 객체인 메서드를 사용했을 떄 어떻게 할 것인가?
+
+
+//            Optional 객체 처리 방법
+//        방법1. isPresent()로 확인 후 get();
+        if (opt3.isPresent()) System.out.println(opt3.get().length());
+//        방법2. orElse() 메서드를 사용 : 값이 있으면 있는 값 return , 없으면 지정값 return
+        System.out.println(opt3.get().length());
+//        방법3. orElseGet() : 값이 있으면 있는 값 return, 없으면 람다함수 실행
+        System.out.println(opt3.orElseGet(()->new String("")).length());
+//        방법4. orElseThrow() : 가!장!중!요!, 값이 있으면 있는 값 return, 없으면 지정된 예외 강제 발생
+//        개발에서 예외를 사용자에게 적절한 메시지를 전달 목적으로 강제 발생시키는 경우도 존재한다.
+//        4번 정도만 기억해도 문제가 없을 것 같다.
+        System.out.println(opt3.orElseThrow(()->new NoSuchElementException("값이 없다")).length());
+
+//
+
+//        방법2
+
+        double answer2 = students.stream().filter(a->a.getAge()>=29).mapToInt(a->a.getAge()).average().orElseThrow(()->new NoSuchElementException("값이 없습니다."));
+
+        List<Student> students1 = new ArrayList<>();
+        students1.add(new Student("kim", 20));
+        students1.add(new Student("kim1", 21));
+        students1.add(new Student("kim2", 23));
+        students1.add(new Student("kim3", 25));
+//        방법1
+        OptionalDouble answer = students1.stream().filter(a->a.getAge()>=29).mapToInt(a->a.getAge()).average();
+        if(answer.isPresent()){
+            System.out.println(answer.getAsDouble());
+        }else {
+            System.out.println("값이 없습니다.");
+        }
+        System.out.println(answer);
+//        방법2
+        double answer1 = students.stream().filter(a->a.getAge()>=29).mapToInt(a->a.getAge()).average().orElseThrow(()->new NoSuchElementException("값이 없습니다."));
+    }
 }
