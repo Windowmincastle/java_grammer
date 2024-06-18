@@ -153,14 +153,12 @@ public class C0504StreamApi {
         }
 
 //        옵셔널 객체 생성 3가지 방법
-
         Optional<String> opt2 = Optional.empty();
         Optional<String> opt3 = Optional.of(null); //null이 못 들어감 널이 들어가면 에러가 남.
         Optional<String> opt4 = Optional.ofNullable(null); // null 허용
 //       이걸 왜 배우냐?
 //        내가 직접 옵셔널을 만들 일은 거의 없다.
 //        return이 Optional 객체인 메서드를 사용했을 떄 어떻게 할 것인가?
-
 
 //            Optional 객체 처리 방법
 //        방법1. isPresent()로 확인 후 get();
