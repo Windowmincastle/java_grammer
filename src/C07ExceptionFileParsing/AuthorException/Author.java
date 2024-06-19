@@ -1,4 +1,4 @@
-package C06EtcClass.AuthorException;
+package C07ExceptionFileParsing.AuthorException;
 // 객체 그 자체를 Entity라고 부른다.
 // 테이블과 맵핑 되는 개념이다.
 

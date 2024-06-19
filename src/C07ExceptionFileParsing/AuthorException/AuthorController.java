@@ -1,4 +1,4 @@
-package C06EtcClass.AuthorException;
+package C07ExceptionFileParsing.AuthorException;
 // 사용자와 최접점에 있는 것. 입력받고~출력해주고~ 그런거
 
 
@@ -17,7 +17,6 @@ public class AuthorController {
     public static void main(String[] args) {
 
         AuthorService authorService = new AuthorService();
-
         while (true) {
 
             System.out.println("환영합니다.");

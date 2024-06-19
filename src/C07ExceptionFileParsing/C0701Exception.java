@@ -1,4 +1,4 @@
-package C06EtcClass;
+package C07ExceptionFileParsing;
 
 import java.sql.SQLException;
 import java.util.Scanner;

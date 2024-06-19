@@ -1,7 +1,8 @@
-package C06EtcClass.AuthorException;
+package C07ExceptionFileParsing.AuthorException;
 
 // 서비스는 여기서 이루어진다.
 
+import java.util.List;
 import java.util.Scanner;
 
 // AuthorRepository 생성
@@ -59,7 +60,8 @@ public class AuthorService {
     }
 
     public void login() {
-
+//      해당하는 email이 있는지
+//      그 e
         System.out.println("로그인 입니다. 절차에 따르세요");
         System.out.println("이메일 입력");
         Scanner sc = new Scanner(System.in);
@@ -68,7 +70,6 @@ public class AuthorService {
         String password = sc.nextLine();
 
         for (int i = 0; i < authorRepository.authors.size(); i++) {
-
             if (email.equals(authorRepository.authors.get(i).getEmail()) && password.equals(authorRepository.authors.get(i).getPassword())) {
                 System.out.println("로그인 성공");
                 break;
@@ -76,8 +77,15 @@ public class AuthorService {
                 System.out.println("아이디 혹은 비밀번호가 틀립니다. 다시 시도해주세요");
             }
         }
-
-
     }
+
+//    public void login2(String email, String password) {
+//
+//        List<Author> = authorRepository.getAuthorList();
+//
+//        for (Author a : authorList) {
+//            if (a.getEmail().equals(email) && a)
+//        }
+//    }
 
 }
