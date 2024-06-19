@@ -18,7 +18,7 @@ public class C0702FileParsing {
 //        IO 패키지를 사용한다.
 //        BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
 //        String input = br1.readLine(); // 한 줄을 읽기
-//        Syste`m.out.println(input);
+//        System.out.println(input);
 
 //        파일에서 읽기
 //        파일에서 우클릭 -> 소스경로 복사해서 넣기

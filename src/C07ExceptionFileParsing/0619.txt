@@ -2,3 +2,10 @@
 
 
 login => email 입력할 때
+
+자바 객체 -> JSON : 직렬화
+JSON -> 자바 객체 : 역직렬화
+
+readTree : JsonNode 트리구조로 객체 return
+ReadValue : 원하는 객체로 변환해서 return
+
