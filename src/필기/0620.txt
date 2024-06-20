@@ -25,3 +25,19 @@ bankservice가 중요하다.
 -필기
 localhost:8081?id=1&name=kimminseong&age=30
 id는 1번이고 name은 kimminseong인 사람을 달라 그리고 & 붙여서 나이는 30인 사람까지 추가할 수 있따
+
+--실습--
+webserver3를 만들어서
+Author 테이블 생성하고
+id,name,email,password로 이루어져있다고 가정한다.
+pk는 (id)로 걸기
+
+사용자가 localhost:8081?id=1 이렇게 요청시
+name,email,password는 뭐다 라고 응답
+
+사용자가 ?name=hong&email=hong@naer.com으로 요청하면
+name,email,password 2가지 응답을 줄 수 있게
+
+--------------------
+짜르는거 좀 헷갈림 다시 해보자
+

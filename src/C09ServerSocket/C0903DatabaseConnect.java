@@ -1,8 +1,6 @@
 package C09ServerSocket;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class C0903DatabaseConnect {
 
@@ -19,6 +17,24 @@ public class C0903DatabaseConnect {
 //      프린트기 사면 드라이버 깔아야하듯이 깔아야함.
         Connection con = DriverManager.getConnection(url, userName, password);
         System.out.println("DB 연결 성공");
+
+//        statement : 쿼리를 담아 db로 쿼리 전달하는 객체
+        Statement st = con.createStatement();
+        String myQuery = "SELECT * FROM post";
+        ResultSet rs = st.executeQuery(myQuery);
+
+        int id = 0;
+        String name = "";
+        String email = "";
+        String userPassword = "";
+
+        while (rs.next()) {
+            id = rs.getInt("id");
+            name = rs.getString("name");
+            name = rs.getString("email");
+            userPassword = rs.getString("password");
+            System.out.println(id+" "+ name+" "+email+" "+ userPassword); // 전체 조회할 수 있따.
+        }
 
     }
 
