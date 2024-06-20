@@ -9,3 +9,8 @@ JSON -> 자바 객체 : 역직렬화
 readTree : JsonNode 트리구조로 객체 return
 ReadValue : 원하는 객체로 변환해서 return
 
+1.동기화 코드 , 단일스레드 , syncronized or join인데 싱크로나이즈드가 맞다
+2.비동기 코드 , 멀티스레드 ,
+
+=> 도서관(100권) : 단일 스레드
+=> 이벤트

@@ -1,0 +1,27 @@
+
+readTree랑
+readValue는 기억하자
+
+파싱 = 역직렬화 : json => 객체
+객체 => json : 역직렬화
+
+A 서버와 B 서버가 통신한다고 가정한다면
+
+내가 B서버에 데이터를 줘야하면
+
+내 객체를 -> json으로 변환해서 줘야지
+
+B서버가 나에게 준다면 json을 주면 나는 내 객체로 변환해서 사용해야한다.
+
+전 세계가 json을 쓰지는 않는다. text와 xml도 아직 존재한다. 그러나 json이 글로벌 표준이라
+생각하면 된다.
+
+동시성 이슈가 그렇게 많지 않다
+대표적으로 재고이며 update 상황에서 대부분 생긴다
+
+복습해야할것은 author, post
+bankservice가 중요하다.
+
+-필기
+localhost:8081?id=1&name=kimminseong&age=30
+id는 1번이고 name은 kimminseong인 사람을 달라 그리고 & 붙여서 나이는 30인 사람까지 추가할 수 있따

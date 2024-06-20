@@ -16,20 +16,20 @@ public class C0702FileParsing {
 
 //      콘솔에서 읽기, 버퍼 떄문에 성능이 좋다.
 //        IO 패키지를 사용한다.
-//        BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
-//        String input = br1.readLine(); // 한 줄을 읽기
-//        System.out.println(input);
+        BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+        String input = br1.readLine(); // 한 줄을 읽기
+        System.out.println(input);
 
 //        파일에서 읽기
 //        파일에서 우클릭 -> 소스경로 복사해서 넣기
-//        BufferedReader br2 = new BufferedReader(new FileReader("src/C07ExceptionFileParsing/test_file.txt"));
-////        System.out.println(br2.readLine());
-//
+        BufferedReader br2 = new BufferedReader(new FileReader("src/C07ExceptionFileParsing/test_file.txt"));
+        System.out.println(br2.readLine());
+
 ////        종종 볼수있는 패턴,
-//        String line = br2.readLine();
-//        while ((line = br2.readLine()) != null) {
-//            System.out.println(line);
-//        }
+        String line = br2.readLine();
+        while ((line = br2.readLine()) != null) {
+            System.out.println(line);
+        }
 
 //        NIO 패키지가 뭔데?
 //        NIO 패키지를 사용한 파일처리

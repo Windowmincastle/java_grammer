@@ -1,0 +1,49 @@
+[{
+  "id": 1,
+  "name": "hong1",
+  "classNumber": "1",
+  "city" : "Daegu"
+},
+{
+"id": 2,
+"name": "길",
+"classNumber": "2",
+"city" : "서울"
+},
+{
+"id": 3,
+"name": "동",
+"classNumber": "3",
+"city" : "부산"
+},
+{
+  "id": 3,
+  "name": "동",
+  "classNumber": "3",
+  "city" : "부산"
+},
+{
+  "id": 3,
+  "name": "동",
+  "classNumber": "3",
+  "city" : "부산"
+},
+{
+  "id": 3,
+  "name": "동",
+  "classNumber": "3",
+  "city" : "부산"
+},
+{
+  "id": 3,
+  "name": "동",
+  "classNumber": "3",
+  "city" : "부산"
+},
+{
+  "id": 3,
+  "name": "동",
+  "classNumber": "3",
+  "city" : "부산"
+}
+]
