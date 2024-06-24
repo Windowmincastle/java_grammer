@@ -1,4 +1,5 @@
-import javax.imageio.IIOException;
+package ETC;
+
 import java.io.*;
 
 public class test {
