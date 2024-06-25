@@ -6,7 +6,7 @@ public class Main2 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         // 입력받은 문자열을 앞뒤 공백 제거
-        String word = br.readLine().trim();
+        String word = br.readLine().trim(); // br.readLine()에서 바로 trim 가능
 
 //      예외 처리
         if (word.length() == 0) {

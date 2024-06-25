@@ -6,24 +6,26 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class C06String2 {
+public class C06String2Pratice {
 
     /*
 형 변환 toString, valueOf
-비교 equals , equalsIgnoreCase
+비교 equals , equalsIgnoreCase : 대소문자 모두 비교
 길이 반환 length()
 문자열 포함 여부 체크 contains -> boolean 타입반환
-indexOf , lastIndexOf indexOf는 특정 문자나 문자열이 처음으로 나타나는 위치 반환
-lastIndexOf -> 특정 문자,문자열이 마지막으로 나타나는 시작 위치를 반환한다
+indexOf , lastIndexOf indexOf는 특정 문자나 문자열이 처음으로 나타나는 위치 반환 lastIndexOf -> 특정 문자,문자열이 마지막으로 나타나는 시작 위치를 반환한다
 toCharArry() 문자열을 char형 문자 배열로 변환. 문자열을 개별 문자 단위로 처리할 때 유용하다
 substring(); -> (n,m); m-1까지 반환, (n) n부터 끝까지, (0) 끝까지 다 반환 string 반환
 trim은 양쪽 공백을 제거하는듯? 중간에 있는 공백은 제거되지 않는다.
 
 join 메서드 String.join(구분자,String배열);
+
 StringBuffer의 데이터를 String 타입으로 toString
 String ansStr = sb1.toString();
+
 StringBuffer insert 메서드 idx 6에 python 삽입?
 sb1.insert(6, "python ");
+
 StringBuilder 이렇게 이어붙여서 활용할 수 있다.
 sb2.append("이렇게 가능").append("\n");
 
